@@ -6,13 +6,18 @@ import { AppComponent } from './app.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { BetterHighlightDirective } from './better-highlight/bette-highlight.directive';
 import { UnlessDirective } from './unless/unless.directive';
+import { HomePageComponent } from './home-page/home-page.component';
+import { RouterModule } from '@angular/router';
+import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    HomePageComponent,
+    PurchaseOrderComponent
   ],
   imports: [
     BrowserModule,
