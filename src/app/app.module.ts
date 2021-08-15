@@ -9,6 +9,10 @@ import { UnlessDirective } from './unless/unless.directive';
 import { HomePageComponent } from './home-page/home-page.component';
 import { RouterModule } from '@angular/router';
 import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './auth-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +21,16 @@ import { PurchaseOrderComponent } from './purchase-order/purchase-order.componen
     BetterHighlightDirective,
     UnlessDirective,
     HomePageComponent,
-    PurchaseOrderComponent
+    PurchaseOrderComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
